@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased text-slate-900;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.clip-path-hero {
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
