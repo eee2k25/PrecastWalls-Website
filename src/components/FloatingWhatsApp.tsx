@@ -1,18 +1,19 @@
-import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle } from "lucide-react";
+import { COMPANY } from "../lib/company";
 
-export function FloatingWhatsApp() {
+export function FloatingWhatsApp({ label }: { label: string }) {
   return (
-    <a 
-      href="https://wa.me/919014386019" 
-      target="_blank" 
+    <a
+      href={COMPANY.whatsapp}
+      target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 z-50 bg-emerald-500 text-white p-5 rounded-3xl shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group"
+      className="fixed bottom-5 right-5 z-40 bg-[#25D366] text-white p-3.5 rounded-full shadow-lg hover:scale-105 transition-transform group"
+      aria-label={label}
     >
-      <div className="absolute right-full mr-4 bg-white text-slate-900 px-6 py-3 rounded-2xl text-sm font-black shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-gray-100">
-        Direct Help on WhatsApp
-      </div>
-      <MessageCircle className="h-8 w-8" />
+      <span className="absolute right-full mr-3 bg-white text-st-text px-3 py-1.5 rounded-md text-sm font-semibold shadow border border-st-border opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+        {label}
+      </span>
+      <MessageCircle className="h-6 w-6" />
     </a>
   );
 }

@@ -1,15 +1,123 @@
 @import "tailwindcss";
 
+@theme {
+  --color-st-red: #ff4b4b;
+  --color-st-red-hover: #ff2b2b;
+  --color-st-red-dark: #bd4043;
+  --color-st-bg: #ffffff;
+  --color-st-sidebar: #f0f2f6;
+  --color-st-text: #31333f;
+  --color-st-muted: #808495;
+  --color-st-border: #d6d6d8;
+  --color-st-green: #21c354;
+  --color-st-blue: #3d9df3;
+  --color-st-yellow: #ffbd45;
+  --font-sans: "Source Sans 3", "Source Sans Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Source Code Pro", ui-monospace, monospace;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply antialiased text-slate-900;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    @apply antialiased text-st-text bg-white;
+    font-family: var(--font-sans);
+  }
+  button {
+    cursor: pointer;
   }
 }
 
-.clip-path-hero {
-  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+/* Streamlit-accurate range slider */
+input[type="range"].st-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  outline: none;
+  background: var(--track, #d6d6d9);
+}
+input[type="range"].st-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #c6c6c8;
+  box-shadow: 0 1px 4px rgba(49, 51, 63, 0.28);
+  cursor: pointer;
+}
+input[type="range"].st-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #c6c6c8;
+  box-shadow: 0 1px 4px rgba(49, 51, 63, 0.28);
+  cursor: pointer;
+}
+
+.st-input,
+.st-select {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #d6d6d8;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 1rem;
+  color: #31333f;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.st-input:focus,
+.st-select:focus {
+  border-color: #ff4b4b;
+  box-shadow: 0 0 0 1px #ff4b4b;
+}
+
+.st-btn {
+  background: #ff4b4b;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.35rem 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.12s;
+}
+.st-btn:hover {
+  background: #ff2b2b;
+}
+.st-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.st-btn-secondary {
+  background: #ffffff;
+  color: #31333f;
+  border: 1px solid #d6d6d8;
+  border-radius: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.35rem 0.9rem;
+  font-weight: 600;
+}
+.st-btn-secondary:hover {
+  border-color: #ff4b4b;
+  color: #ff4b4b;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9c9ce;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }
